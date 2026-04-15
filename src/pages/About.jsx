@@ -1,11 +1,22 @@
+import juFoto from '../assets/ju-pereira.jpg'
+
 export default function About() {
   return (
     <div className="min-h-screen py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="section-title">A Jornada de Ju Pereira</h1>
         
+        {/* Foto */}
+        <div className="mb-12 flex justify-center">
+          <img 
+            src={juFoto} 
+            alt="Ju Pereira" 
+            className="w-64 h-64 rounded-full shadow-2xl border-4 border-[#d4af37] object-cover"
+          />
+        </div>
+        
         <div className="bg-[#1a0f2e] p-8 rounded-lg border-l-4 border-[#d4af37] mb-8">
-          <h2 className="text-3xl font-bold text-[#d4af37] mb-6">De Roceira a Terapeuta: A Alquimia da Superação</h2>
+          <h2 className="text-3xl font-bold text-[#d4af37] mb-6 text-center">De Roceira a Terapeuta: A Alquimia da Superação</h2>
           
           <div className="space-y-6 text-gray-200 text-lg leading-relaxed">
             <p>
