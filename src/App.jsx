@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Mentoria from './pages/Mentoria'
 import Perolas from './pages/Perolas'
+import Reiki from './pages/Reiki'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 
@@ -20,6 +21,8 @@ function App() {
         return <Mentoria />
       case 'perolas':
         return <Perolas />
+      case 'reiki':
+        return <Reiki />
       default:
         return <Home />
     }

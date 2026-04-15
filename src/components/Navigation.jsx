@@ -3,6 +3,7 @@ export default function Navigation({ currentPage, setCurrentPage }) {
     { id: 'home', label: 'Início' },
     { id: 'about', label: 'Sobre Mim' },
     { id: 'mentoria', label: 'Mentoria' },
+    { id: 'reiki', label: 'Reiki' },
     { id: 'perolas', label: 'Pérolas de Milagres' },
   ]
 
