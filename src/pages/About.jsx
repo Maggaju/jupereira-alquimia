@@ -1,59 +1,106 @@
-import juFoto from '../assets/ju-pereira.jpg'
+import { content } from '../data/content'
 
-export default function About() {
+export default function About({ language = 'pt' }) {
+  const t = content[language]
+
   return (
-    <div className="min-h-screen py-16 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="section-title">A Jornada de Ju Pereira</h1>
-        
-        {/* Foto */}
-        <div className="mb-12 flex justify-center">
-          <img 
-            src={juFoto} 
-            alt="Ju Pereira" 
-            className="w-64 h-64 rounded-full shadow-2xl border-4 border-[#d4af37] object-cover"
-          />
+    <div className="w-full">
+      {/* Header */}
+      <section className="py-20 px-6 bg-gradient-to-br from-[#FAFAF8] via-[#F5F3F0] to-[#FAFAF8]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-6xl font-bold text-[#8B5CF6] mb-4">
+            {t.about.title}
+          </h1>
+          <h2 className="text-3xl text-[#10B981] font-light italic">
+            {t.about.subtitle}
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-[#8B5CF6] to-[#10B981] mx-auto mt-6"></div>
         </div>
-        
-        <div className="bg-[#1a0f2e] p-8 rounded-lg border-l-4 border-[#d4af37] mb-8">
-          <h2 className="text-3xl font-bold text-[#d4af37] mb-6 text-center">De Roceira a Terapeuta: A Alquimia da Superação</h2>
-          
-          <div className="space-y-6 text-gray-200 text-lg leading-relaxed">
-            <p>
-              Minha história começou no interior do Brasil, onde aprendi com a enxada que nada floresce sem preparar o solo. Mas, ao longo da vida, esqueci dessa lição simples.
-            </p>
-            
-            <p>
-              Migrei para o Canadá e, em solo estrangeiro, enfrentei meu inverno mais rigoroso: <span className="text-[#d4af37] font-bold">um divórcio, a escassez profunda e a exaustão de sustentar meu filho sozinha com três empregos simultâneos.</span>
-            </p>
-            
-            <p>
-              Foi nesse cenário de dor e sobrevivência que o <span className="text-[#d4af37] font-bold">Burnout</span> me parou. O esgotamento não foi apenas cansaço; foi o grito da minha alma me avisando que eu havia me tornado vítima do mundo que eu mesma via.
-            </p>
-            
-            <p>
-              Foi ali, no "vale das sombras", que redescobri a <span className="text-[#d4af37] font-bold">Alquimia Emocional</span>. Percebi que minha dor não era um erro, mas a bússola que me guiava de volta à minha própria luz.
-            </p>
-            
-            <p className="text-xl font-bold text-[#e8c547]">
-              "Pois com a paz você tem tudo, sem ela você tem Medo"
-            </p>
+      </section>
+
+      {/* Story Sections */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          {t.about.sections.map((section, index) => (
+            <div key={index} className="mb-16">
+              <div className="flex items-start gap-6">
+                {/* Circle Indicator */}
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#10B981]">
+                    <span className="text-white font-bold text-lg">{index + 1}</span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-[#8B5CF6] mb-4">
+                    {section.title}
+                  </h3>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {section.text}
+                  </p>
+                </div>
+              </div>
+
+              {/* Divider */}
+              {index < t.about.sections.length - 1 && (
+                <div className="mt-12 ml-6 h-12 border-l-2 border-[#10B981]/30"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 px-6 bg-white/30">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-[#8B5CF6] text-center mb-12">
+            {language === 'pt' ? 'Meus Valores' : 'Mes Valeurs'}
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                pt: 'Autenticidade',
+                fr: 'Authenticité',
+                icon: '🌿'
+              },
+              {
+                pt: 'Compaixão',
+                fr: 'Compassion',
+                icon: '💜'
+              },
+              {
+                pt: 'Transformação',
+                fr: 'Transformation',
+                icon: '✨'
+              }
+            ].map((value, idx) => (
+              <div key={idx} className="text-center p-8 rounded-xl bg-white/50 border border-[#10B981]/20">
+                <div className="text-5xl mb-4">{value.icon}</div>
+                <h3 className="text-2xl font-bold text-[#8B5CF6]">
+                  {language === 'pt' ? value.pt : value.fr}
+                </h3>
+              </div>
+            ))}
           </div>
         </div>
+      </section>
 
-        <div className="bg-[#1a7c6b] bg-opacity-20 p-8 rounded-lg border-l-4 border-[#1a7c6b] mb-8">
-          <h3 className="text-2xl font-bold text-[#2ba896] mb-4">Minha Missão Hoje</h3>
-          <p className="text-gray-200 text-lg leading-relaxed">
-            Hoje, minha missão é ser a sua guia nessa <span className="text-[#2ba896] font-bold">Jardinagem Interior</span>. Eu não ensino apenas teoria; eu ofereço o mapa de quem já desenterrou as próprias sombras para plantar sementes de paz.
-          </p>
-          <p className="text-gray-200 text-lg leading-relaxed mt-4">
-            Na <span className="text-[#2ba896] font-bold">Mentoria Jardim Alquímico</span>, eu ajudo você a limpar o seu solo emocional, a retomar a sua Bússola Interna e a co-criar uma realidade onde a abundância é o seu estado natural.
-          </p>
-          <p className="text-xl font-bold text-[#2ba896] mt-6">
-            "Porque eu sei o caminho de volta. E eu posso te ensinar a caminhar."
+      {/* Call to Action */}
+      <section className="py-20 px-6 bg-gradient-to-r from-[#8B5CF6]/10 via-[#10B981]/10 to-[#D4AF37]/10">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-[#8B5CF6] mb-6">
+            {language === 'pt' ? 'Vamos Começar Juntos?' : 'Commençons Ensemble?'}
+          </h2>
+          <p className="text-lg text-gray-700 mb-8">
+            {language === 'pt'
+              ? 'Estou aqui para ajudá-lo em sua jornada de transformação.'
+              : 'Je suis ici pour vous aider dans votre voyage de transformation.'
+            }
           </p>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
