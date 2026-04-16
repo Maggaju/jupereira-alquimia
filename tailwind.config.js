@@ -7,12 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'roxo-profundo': '#3d1a5c',
-        'roxo-claro': '#6b3fa0',
-        'verde-esmeralda': '#1a7c6b',
-        'verde-claro': '#2ba896',
-        'dourado': '#d4af37',
-        'dourado-claro': '#e8c547',
+        'purple-magic': '#8B5CF6',
+        'green-emerald': '#10B981',
+        'gold-alchemist': '#D4AF37',
+        'light-peace': '#FAFAF8',
+        'cream-soft': '#F5F3F0',
+      },
+      fontFamily: {
+        'playfair': ['Playfair Display', 'serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
     },
   },
